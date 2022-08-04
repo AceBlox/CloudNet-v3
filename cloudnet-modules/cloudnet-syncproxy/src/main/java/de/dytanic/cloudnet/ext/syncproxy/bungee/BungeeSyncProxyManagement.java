@@ -24,6 +24,7 @@ import de.dytanic.cloudnet.ext.syncproxy.configuration.SyncProxyProxyLoginConfig
 import de.dytanic.cloudnet.ext.syncproxy.configuration.SyncProxyTabList;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
+import net.kyori.adventure.audience.Audience;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.ProxyServer;
 import net.md_5.bungee.api.chat.TextComponent;
@@ -58,14 +59,16 @@ public class BungeeSyncProxyManagement extends AbstractSyncProxyManagement {
       return;
     }
 
-    proxiedPlayer.setTabHeader(
-      MiniMessageUtils.miniMessage(super.tabListHeader != null ?
+    Audience audience = BungeeCloudNetSyncProxyPlugin.adventure().player(proxiedPlayer);
+    audience.sendPlayerListHeaderAndFooter(MiniMessageUtils.miniComponent(
+      super.tabListHeader != null ?
         this.replaceTabListItem(proxiedPlayer, ChatColor.translateAlternateColorCodes('&', super.tabListHeader))
-        : "", true),
-      MiniMessageUtils.miniMessage(super.tabListFooter != null ?
+        : ""
+    ),
+      MiniMessageUtils.miniComponent(super.tabListFooter != null ?
         this.replaceTabListItem(proxiedPlayer, ChatColor.translateAlternateColorCodes('&', super.tabListFooter))
-        : "", true)
-    );
+        : "")
+      );
   }
 
   private String replaceTabListItem(ProxiedPlayer proxiedPlayer, String input) {

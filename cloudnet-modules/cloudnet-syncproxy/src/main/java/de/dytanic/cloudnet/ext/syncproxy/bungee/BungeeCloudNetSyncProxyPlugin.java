@@ -27,13 +27,13 @@ import net.md_5.bungee.api.plugin.Plugin;
 
 public final class BungeeCloudNetSyncProxyPlugin extends Plugin {
 
-  private BungeeAudiences adventure;
+  private static BungeeAudiences adventure;
 
-  public BungeeAudiences adventure() {
-    if(this.adventure == null) {
+  public static BungeeAudiences adventure() {
+    if(adventure == null) {
       throw new IllegalStateException("Cannot retrieve audience provider while plugin is not enabled");
     }
-    return this.adventure;
+    return adventure;
   }
   @Override
   public void onEnable() {
@@ -45,7 +45,7 @@ public final class BungeeCloudNetSyncProxyPlugin extends Plugin {
 
     ProxyServer.getInstance().getPluginManager()
       .registerListener(this, new BungeeSyncProxyPlayerListener(syncProxyManagement));
-    this.adventure = BungeeAudiences.create(this);
+    adventure = BungeeAudiences.create(this);
   }
 
   @Override
