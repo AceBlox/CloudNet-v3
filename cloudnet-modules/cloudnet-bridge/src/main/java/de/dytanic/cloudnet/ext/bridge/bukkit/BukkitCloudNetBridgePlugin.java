@@ -120,13 +120,13 @@ public final class BukkitCloudNetBridgePlugin extends JavaPlugin {
         // new method in 1.19 and above
         MethodHandle constructor = MethodHandles.publicLookup().findConstructor(
           ServerListPingEvent.class,
-          MethodType.methodType(void.class, InetAddress.class, String.class, boolean.class, int.class, int.class));
+          MethodType.methodType(void.class, String.class, InetAddress.class, String.class, int.class, int.class));
         this.serverListPingEventConstructor = () -> {
           try {
             return (ServerListPingEvent) constructor.invokeExact(
+              "blaubart.net",
               new InetSocketAddress("127.0.0.1", 53345).getAddress(),
               BridgeServerHelper.getMotd(),
-              false,
               Bukkit.getOnlinePlayers().size(),
               BridgeServerHelper.getMaxPlayers());
           } catch (Throwable throwable) {
@@ -148,11 +148,15 @@ public final class BukkitCloudNetBridgePlugin extends JavaPlugin {
           exception);
       } catch (NoSuchMethodException exception) {
         // old method before 1.18
+
         this.serverListPingEventConstructor = () -> new ServerListPingEvent(
+          "Blaubart.net",
           new InetSocketAddress("127.0.0.1", 53345).getAddress(),
           BridgeServerHelper.getMotd(),
           Bukkit.getOnlinePlayers().size(),
           BridgeServerHelper.getMaxPlayers());
+
+
       }
     }
     return this.serverListPingEventConstructor.get();

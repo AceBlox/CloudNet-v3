@@ -19,7 +19,6 @@ package de.dytanic.cloudnet.ext.bridge.player;
 import de.dytanic.cloudnet.common.document.gson.JsonDocument;
 import de.dytanic.cloudnet.ext.bridge.bukkit.BukkitCloudNetPlayerInfo;
 import de.dytanic.cloudnet.ext.bridge.bungee.BungeeCloudNetPlayerInfo;
-import de.dytanic.cloudnet.ext.bridge.nukkit.NukkitCloudNetPlayerInfo;
 import de.dytanic.cloudnet.ext.bridge.velocity.VelocityCloudNetPlayerInfo;
 import java.util.UUID;
 import org.jetbrains.annotations.NotNull;
@@ -50,11 +49,6 @@ public class ServicePlayer {
   @NotNull
   public BukkitCloudNetPlayerInfo asBukkit() {
     return this.data.toInstanceOf(BukkitCloudNetPlayerInfo.class);
-  }
-
-  @NotNull
-  public NukkitCloudNetPlayerInfo asNukkit() {
-    return this.data.toInstanceOf(NukkitCloudNetPlayerInfo.class);
   }
 
   @NotNull

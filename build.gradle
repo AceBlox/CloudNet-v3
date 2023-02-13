@@ -52,9 +52,10 @@ allprojects {
     }
 
     maven {
-      name 'nukkix'
-      url 'https://repo.nukkitx.com/maven-snapshots'
+      name 'paper'
+      url 'https://papermc.io/repo/repository/maven-public/'
     }
+
 
     maven {
       name 'sonatype'
@@ -66,10 +67,7 @@ allprojects {
       url 'https://jitpack.io'
     }
 
-    maven {
-      name 'paper'
-      url 'https://papermc.io/repo/repository/maven-public/'
-    }
+
 
   }
 
@@ -86,9 +84,9 @@ allprojects {
     dependencyNettyVersion = '4.1.73.Final'
     dependencyJLineVersion = '3.21.0'
     dependencyJAnsiVersion = '2.4.0'
-    dependencySpigotApiVersion = '1.8.8-R0.1-SNAPSHOT'
+    dependencySpigotApiVersion = '1.19.3-R0.1-SNAPSHOT'
     dependencySpongeVersion = '7.3.0'
-    dependencyBungeeCordVersion = '1.18-R0.1-SNAPSHOT'
+    dependencyBungeeCordVersion = '1.19-R0.1-SNAPSHOT'
     dependencyVelocityVersion = '1.1.8'
     dependencyNukkitXVersion = '1.0-SNAPSHOT'
     dependencyGoMintVersion = '1.0.0-SNAPSHOT'
@@ -97,7 +95,7 @@ allprojects {
     dependencyHikariCpVersion = '4.0.3'
     dependencyVaultVersion = '1.7.1'
     dependencyProtocolLibVersion = 'master-SNAPSHOT'
-    dependencyNpcLibVersion = 'development-SNAPSHOT'
+    dependencyNpcLibVersion = '2.5-RELEASE'
     dependencyCommonsNetVersion = '3.8.0'
     dependencyJschVersion = '0.1.55'
     dependencyJavassistVersion = '3.28.0-GA'

@@ -23,14 +23,21 @@ jar {
   archiveFileName.set(cloudnetModuleSyncProxyFileName)
 }
 
+repositories {
+
+  mavenCentral()
+
+
+}
+
 dependencies {
   compileOnly project(':cloudnet')
   compileOnly project(':cloudnet-wrapper-jvm')
   compileOnly project(':cloudnet-modules:cloudnet-bridge')
   compileOnly group: 'io.github.waterfallmc', name:'waterfall-api', version: '1.18-R0.1-SNAPSHOT'
-  implementation group: "net.kyori", name: "adventure-api", version: "4.11.0"
-  implementation group: "net.kyori", name: "adventure-text-minimessage", version: "4.11.0"
-  implementation group: "net.kyori", name:"adventure-platform-bungeecord", version: "4.1.1"
+  implementation "net.kyori:adventure-api:4.12.0"
+  implementation "net.kyori:adventure-text-minimessage:4.12.0"
+  implementation "net.kyori:adventure-platform-bungeecord:4.2.0"
   compileOnly group: 'com.velocitypowered', name: 'velocity-api', version: dependencyVelocityVersion
   compileOnly group: 'dev.waterdog.waterdogpe', name: 'waterdog', version: dependencyWaterdogPEVersion
 }

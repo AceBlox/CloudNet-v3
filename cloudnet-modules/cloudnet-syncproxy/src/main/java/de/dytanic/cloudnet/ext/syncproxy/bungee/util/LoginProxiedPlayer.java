@@ -51,6 +51,7 @@ public class LoginProxiedPlayer implements ProxiedPlayer {
   public LoginProxiedPlayer(PendingConnection connection) {
     this.connection = connection;
 
+    /*
     this.groups.addAll(ProxyServer.getInstance().getConfigurationAdapter().getGroups(connection.getName()));
 
     for (String group : this.groups) {
@@ -58,6 +59,8 @@ public class LoginProxiedPlayer implements ProxiedPlayer {
         this.setPermission(permission, true);
       }
     }
+
+     */
   }
 
   @Override
@@ -287,7 +290,7 @@ public class LoginProxiedPlayer implements ProxiedPlayer {
     return ProxyServer.getInstance().getPluginManager().callEvent(new PermissionCheckEvent(
       this,
       permission,
-      this.permissions.contains(permission.toLowerCase())
+      false
     )).hasPermission();
   }
 

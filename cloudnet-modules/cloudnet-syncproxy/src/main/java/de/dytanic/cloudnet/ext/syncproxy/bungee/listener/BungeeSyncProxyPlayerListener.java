@@ -91,7 +91,7 @@ public final class BungeeSyncProxyPlayerListener implements Listener {
         boolean above16 = event.getConnection().getVersion() >= 735;
 
         ServerPing serverPing = new ServerPing(
-          new ServerPing.Protocol(MiniMessageUtils.miniMessage(protocolName, above16)[0].toString(),
+          new ServerPing.Protocol(protocolName,
             (protocolText == null ? event.getResponse().getVersion().getProtocol() : 1)
           ),
           new ServerPing.Players(maxPlayers, onlinePlayers, playerInfo),
